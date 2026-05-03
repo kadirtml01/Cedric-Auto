@@ -1,92 +1,132 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>CEDRIC AUTO | DASHBOARD</title>
+    <title>CEDRIC AUTO | SELECT BRAND</title>
     <style>
+        /* Genel Arka Plan ve Font */
         body { 
-            background-color: #050505; color: #fff; 
-            font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0;
-            display: flex; justify-content: center; background: #000;
+            background-color: #050505; 
+            color: #fff; 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center;
         }
+
+        /* Uygulama Gövdesi */
         .app-shell {
-            width: 100%; max-width: 400px; min-height: 100vh;
-            background: #080808; border-right: 1px solid #1a1a1a; border-left: 1px solid #1a1a1a;
+            width: 100%;
+            max-width: 400px;
+            min-height: 100vh;
+            background: #080808;
+            border-left: 1px solid #1a1a1a;
+            border-right: 1px solid #1a1a1a;
+            padding-bottom: 40px;
         }
-        .panel-image {
-            width: 100%; height: 150px;
-            background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1000&auto=format&fit=crop');
-            background-size: cover; background-position: center;
-            position: relative; border-bottom: 1px solid #1a1a1a;
+
+        /* Üst Sinematik Görsel */
+        .brand-header-img {
+            width: 100%;
+            height: 220px;
+            background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop'); /* Porsche Görseli */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-bottom: 1px solid #1a1a1a;
         }
-        .panel-overlay {
-            position: absolute; bottom: 0; width: 100%; height: 100%;
+
+        /* Görsel Üzerindeki Karartma Efekti */
+        .header-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
             background: linear-gradient(to top, #080808, transparent);
         }
-        .content { padding: 20px; }
-        .header-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
-        .header-info h2 { font-size: 14px; letter-spacing: 3px; font-weight: 300; color: #fff; margin: 0; text-transform: uppercase; }
-        .status { font-size: 9px; color: #00ff00; border: 1px solid rgba(0,255,0,0.3); padding: 4px 10px; border-radius: 4px; letter-spacing: 1px; }
 
-        .main-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .card { 
-            background: #0d0d0d; border: 1px solid #1a1a1a; padding: 20px; border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        /* Başlık Alanı */
+        .title-section {
+            text-align: center;
+            padding: 25px 20px;
         }
-        .full-card { grid-column: span 2; text-align: center; padding: 30px 20px; }
+
+        .title-section h1 {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .title-section span {
+            font-size: 10px;
+            color: #444;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* Dikey Buton Listesi */
+        .brand-list {
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .brand-item {
+            background: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            padding: 18px;
+            border-radius: 15px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Basıldığında Tepki Veren Efekt */
+        .brand-item:active {
+            background: #fff;
+            color: #000;
+            transform: scale(0.97);
+        }
+
+        /* Özel Renkli/Kenarlıklı Butonlar için */
+        .volvo { border-left: 4px solid #fff; }
+        .porsche { border-left: 4px solid #500; }
+        .toyota { border-left: 4px solid #888; }
         
-        .label { display: block; font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; font-weight: 700; }
-        .value { font-size: 28px; font-weight: 800; color: #fff; }
-        .value span { font-size: 12px; color: #333; margin-left: 5px; }
-        .speed-large { font-size: 60px; color: #fff; line-height: 1; }
-
-        .action-menu { margin-top: 20px; }
-        .menu-item { 
-            background: #0d0d0d; border: 1px solid #1a1a1a; padding: 18px; border-radius: 12px; 
-            margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;
-            font-size: 13px; letter-spacing: 1px; transition: 0.3s;
-        }
-        .menu-item:active { background: #fff; color: #000; }
-        .arrow { color: #333; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="app-shell">
-    <div class="panel-image">
-        <div class="panel-overlay"></div>
+    <div class="brand-header-img">
+        <div class="header-overlay"></div>
     </div>
 
-    <div class="content">
-        <div class="header-info">
-            <h2>System Active</h2>
-            <div class="status">● CONNECTED</div>
-        </div>
-
-        <div class="main-stats">
-            <div class="card full-card">
-                <span class="label">Anlık Hız</span>
-                <div class="speed-large">0<span style="font-size:16px; color:#333;"> KM/H</span></div>
-            </div>
-
-            <div class="card">
-                <span class="label">Motor Devri</span>
-                <div class="value">850<span>RPM</span></div>
-            </div>
-
-            <div class="card">
-                <span class="label">Yağ Sıcaklığı</span>
-                <div class="value">92<span>°C</span></div>
-            </div>
-        </div>
-
-        <div class="action-menu">
-            <div class="menu-item">DTC HATA TARAMA <span class="arrow">→</span></div>
-            <div class="menu-item">CAN-BUS ANALİZ <span class="arrow">→</span></div>
-            <div class="menu-item">LOG KAYITLARI <span class="arrow">→</span></div>
-        </div>
+    <div class="title-section">
+        <h1>CEDRIC AUTO</h1>
+        <span>Kontrol Ünitesi Seçimi</span>
     </div>
+
+    <div class="brand-list">
+        <a href="volvo-panel.html" class="brand-item volvo">Volvo Legacy</a>
+        <a href="porsche-panel.html" class="brand-item porsche">Porsche Performance</a>
+        <a href="toyota-panel.html" class="brand-item toyota">Toyota Utility</a>
+        <a href="bmw-panel.html" class="brand-item">BMW Series</a>
+        <a href="mercedes-panel.html" class="brand-item">Mercedes-Benz</a>
+    </div>
+
 </div>
 
 </body>
