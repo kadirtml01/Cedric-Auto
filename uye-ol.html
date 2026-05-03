@@ -6,7 +6,7 @@
     <title>CEDRIC AUTO | REGISTER</title>
     <style>
         body { background-color: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; }
-        .app-shell { width: 85%; max-width: 380px; background: #0d0d0d; padding-bottom: 40px; border-radius: 30px; border: 1px solid #1a1a1a; overflow: hidden; }
+        .app-shell { width: 85%; max-width: 380px; background: #0d0d0d; padding-bottom: 40px; border-radius: 30px; border: 1px solid #1a1a1a; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
         .header-banner { width: 100%; height: 120px; background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center; position: relative; }
         .header-overlay { position: absolute; bottom: 0; width: 100%; height: 100%; background: linear-gradient(to top, #0d0d0d, rgba(0,0,0,0.4)); }
         .content-area { padding: 0 30px; }
@@ -22,22 +22,27 @@
 <div class="app-shell">
     <div class="header-banner"><div class="header-overlay"></div></div>
     <div class="content-area">
-        <div class="brand-box"><h1>Sistem Kaydı</h1></div>
-        <div class="input-field"><label>Kullanıcı Adı (ID)</label><input type="text" id="regUser" placeholder="ID Belirleyin"></div>
+        <div class="brand-box"><h1>Sistem Kaydı</h1><span>New Operator</span></div>
+        <div class="input-field"><label>Kullanıcı Adı (ID)</label><input type="text" id="regUser" placeholder="Yeni ID"></div>
         <div class="input-field"><label>Erişim Anahtarı</label><input type="password" id="regPass" placeholder="••••••••"></div>
         <button class="btn-register" onclick="kayitYap()">Kaydı Tamamla</button>
     </div>
 </div>
 <script>
 function kayitYap() {
-    const user = document.getElementById('regUser').value;
-    const pass = document.getElementById('regPass').value;
-    if(user && pass) {
-        localStorage.setItem('db_user', user);
-        localStorage.setItem('db_pass', pass);
-        alert("Kayıt Başarılı! Sisteme giriş yapabilirsiniz.");
-        window.location.href = 'index.html';
-    } else { alert("Lütfen tüm alanları doldurun!"); }
+    const user = document.getElementById('regUser').value.trim();
+    const pass = document.getElementById('regPass').value.trim();
+
+    if(user.length < 3 || pass.length < 4) {
+        alert("Kullanıcı adı en az 3, şifre en az 4 karakter olmalıdır!");
+        return;
+    }
+
+    localStorage.setItem('db_user', user);
+    localStorage.setItem('db_pass', pass);
+    
+    alert("Kayıt Başarılı! Sisteme " + user + " olarak giriş yapabilirsiniz.");
+    window.location.href = 'index.html';
 }
 </script>
 </body>
