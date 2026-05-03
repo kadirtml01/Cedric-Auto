@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>CEDRIC AUTO | PANEL</title>
+    <style>
+        body { 
+            background-color: #050505; color: #fff; 
+            font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px;
+        }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid #1a1a1a; padding-bottom: 15px; }
+        .header h2 { font-size: 18px; letter-spacing: 2px; margin: 0; font-weight: 300; }
+        .status-tag { font-size: 10px; color: #00ff00; border: 1px solid #00ff00; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        .main-card { 
+            grid-column: span 2; background: #0d0d0d; border: 1px solid #1a1a1a; 
+            border-radius: 20px; padding: 30px; text-align: center;
+        }
+        .speed-val { font-size: 64px; font-weight: 800; margin: 0; }
+        .speed-unit { color: #444; font-size: 14px; letter-spacing: 2px; }
+
+        .stat-card { 
+            background: #0d0d0d; border: 1px solid #1a1a1a; 
+            border-radius: 15px; padding: 20px; 
+        }
+        .stat-label { font-size: 10px; color: #444; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .stat-value { font-size: 20px; font-weight: 600; }
+
+        .action-list { margin-top: 30px; }
+        .action-item { 
+            background: #111; border: 1px solid #1a1a1a; padding: 18px; 
+            border-radius: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;
+            font-size: 14px; font-weight: 500;
+        }
+        .action-item span { color: #666; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>CEDRIC AUTO</h2>
+    <div class="status-tag">OBD-II AKTİF</div>
+</div>
+
+<div class="grid-container">
+    <div class="main-card">
+        <div class="speed-val">0</div>
+        <div class="speed-unit">KM/H</div>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-label">Motor Devri</span>
+        <div class="stat-value">850 <small style="color:#444">RPM</small></div>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-label">Sıcaklık</span>
+        <div class="stat-value">92 <small style="color:#444">°C</small></div>
+    </div>
+</div>
+
+<div class="action-list">
+    <div class="action-item">Arıza Kodu Tarama <span>›</span></div>
+    <div class="action-item">Performans Testi <span>›</span></div>
+    <div class="action-item">Sistem Ayarları <span>›</span></div>
+</div>
+
+</body>
+</html>
