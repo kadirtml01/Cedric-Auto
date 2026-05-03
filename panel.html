@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -6,127 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>CEDRIC AUTO | SELECT BRAND</title>
     <style>
-        /* Genel Arka Plan ve Font */
         body { 
             background-color: #050505; 
             color: #fff; 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
+            font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
             display: flex; 
             justify-content: center;
         }
 
-        /* Uygulama Gövdesi */
         .app-shell {
             width: 100%;
             max-width: 400px;
             min-height: 100vh;
             background: #080808;
-            border-left: 1px solid #1a1a1a;
-            border-right: 1px solid #1a1a1a;
-            padding-bottom: 40px;
+            position: relative;
         }
 
-        /* Üst Sinematik Görsel */
+        /* Geri Tuşu Tasarımı */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5); /* Yarı şeffaf siyah */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(5px); /* Cam efekti */
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .back-btn:active {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Görsel Alanı */
         .brand-header-img {
             width: 100%;
-            height: 220px;
-            background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop'); /* Porsche Görseli */
+            height: 240px;
+            background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             position: relative;
-            border-bottom: 1px solid #1a1a1a;
         }
 
-        /* Görsel Üzerindeki Karartma Efekti */
         .header-overlay {
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 60%;
-            background: linear-gradient(to top, #080808, transparent);
+            height: 100%;
+            background: linear-gradient(to top, #080808 5%, transparent 50%);
         }
 
-        /* Başlık Alanı */
         .title-section {
             text-align: center;
-            padding: 25px 20px;
+            padding: 30px 20px;
         }
 
         .title-section h1 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 900;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+            letter-spacing: 5px;
             margin: 0;
         }
 
         .title-section span {
             font-size: 10px;
             color: #444;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 700;
         }
 
-        /* Dikey Buton Listesi */
+        /* Marka Listesi */
         .brand-list {
-            padding: 0 30px;
+            padding: 0 25px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .brand-item {
             background: #0d0d0d;
             border: 1px solid #1a1a1a;
-            padding: 18px;
-            border-radius: 15px;
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
             color: #fff;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            transition: 0.3s;
-            cursor: pointer;
             text-decoration: none;
+            transition: 0.2s;
         }
 
-        /* Basıldığında Tepki Veren Efekt */
         .brand-item:active {
             background: #fff;
             color: #000;
-            transform: scale(0.97);
         }
-
-        /* Özel Renkli/Kenarlıklı Butonlar için */
-        .volvo { border-left: 4px solid #fff; }
-        .porsche { border-left: 4px solid #500; }
-        .toyota { border-left: 4px solid #888; }
-        
     </style>
 </head>
 <body>
 
 <div class="app-shell">
+    <a href="index.html" class="back-btn">
+        <span>‹</span>
+    </a>
+
     <div class="brand-header-img">
         <div class="header-overlay"></div>
     </div>
 
     <div class="title-section">
         <h1>CEDRIC AUTO</h1>
-        <span>Kontrol Ünitesi Seçimi</span>
+        <span>Sistem Seçimi</span>
     </div>
 
     <div class="brand-list">
-        <a href="volvo-panel.html" class="brand-item volvo">Volvo Legacy</a>
-        <a href="porsche-panel.html" class="brand-item porsche">Porsche Performance</a>
-        <a href="toyota-panel.html" class="brand-item toyota">Toyota Utility</a>
-        <a href="bmw-panel.html" class="brand-item">BMW Series</a>
-        <a href="mercedes-panel.html" class="brand-item">Mercedes-Benz</a>
+        <a href="#" class="brand-item">Volvo Legacy</a>
+        <a href="#" class="brand-item">Porsche Sport</a>
+        <a href="#" class="brand-item">Toyota Utility</a>
+        <a href="#" class="brand-item">BMW Performance</a>
     </div>
-
 </div>
 
 </body>
