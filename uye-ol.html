@@ -8,23 +8,58 @@
         :root { --main-blue: #00d4ff; --bg-black: #0d1117; --input-bg: #161b22; }
         body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-black); color: white; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
         .login-container { background: var(--input-bg); padding: 40px; border-radius: 20px; width: 100%; max-width: 350px; text-align: center; border: 1px solid #30363d; }
-        h1 { color: var(--main-blue); margin-bottom: 20px; }
+        h1 { color: var(--main-blue); margin-bottom: 20px; letter-spacing: 2px; }
         .input-group { margin-bottom: 15px; text-align: left; }
         label { display: block; margin-bottom: 5px; color: #8b949e; font-size: 0.9em; }
         input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #30363d; background: var(--bg-black); color: white; box-sizing: border-box; }
-        .btn-primary { width: 100%; padding: 12px; border-radius: 8px; border: none; background: var(--main-blue); color: black; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        input:focus { outline: none; border-color: var(--main-blue); box-shadow: 0 0 5px var(--main-blue); }
+        .btn-primary { width: 100%; padding: 12px; border-radius: 8px; border: none; background: var(--main-blue); color: black; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        .btn-primary:hover { background: white; }
         .links { margin-top: 20px; font-size: 0.85em; }
         .links a { color: var(--main-blue); text-decoration: none; }
     </style>
 </head>
 <body>
 <div class="login-container">
-    <h1>Kayıt Ol</h1>
-    <div class="input-group"><label>Ad Soyad</label><input type="text" placeholder="Adınızı girin"></div>
-    <div class="input-group"><label>E-posta</label><input type="email" placeholder="E-posta adresiniz"></div>
-    <div class="input-group"><label>Şifre</label><input type="password" placeholder="Şifre oluşturun"></div>
-    <button class="btn-primary" onclick="alert('Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz.'); window.location.href='index.html'">HESAP OLUŞTUR</button>
-    <div class="links"><a href="index.html">Zaten üye misiniz? Giriş yapın</a></div>
+    <h1>KAYIT OL</h1>
+    
+    <div class="input-group">
+        <label>Ad Soyad</label>
+        <input type="text" placeholder="Adınızı girin">
+    </div>
+
+    <div class="input-group">
+        <label>Kullanıcı Adı</label>
+        <input type="text" id="reg-user" placeholder="Bir kullanıcı adı belirleyin">
+    </div>
+
+    <div class="input-group">
+        <label>E-posta</label>
+        <input type="email" placeholder="E-posta adresiniz">
+    </div>
+
+    <div class="input-group">
+        <label>Şifre</label>
+        <input type="password" placeholder="Şifre oluşturun">
+    </div>
+
+    <button class="btn-primary" onclick="completeRegistration()">HESAP OLUŞTUR</button>
+    
+    <div class="links">
+        <a href="index.html">Zaten üye misiniz? Giriş yapın</a>
+    </div>
 </div>
+
+<script>
+function completeRegistration() {
+    var user = document.getElementById('reg-user').value;
+    if(user !== "") {
+        alert("Kayıt başarılı! Hoş geldin " + user + ". Şimdi giriş yapabilirsin.");
+        window.location.href='index.html';
+    } else {
+        alert("Lütfen bir kullanıcı adı belirleyin!");
+    }
+}
+</script>
 </body>
 </html>
