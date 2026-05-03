@@ -3,69 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>CEDRIC AUTO | PANEL</title>
+    <title>CEDRIC AUTO | DASHBOARD</title>
     <style>
         body { 
             background-color: #050505; color: #fff; 
-            font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px;
+            font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0;
+            display: flex; justify-content: center; background: #000;
         }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid #1a1a1a; padding-bottom: 15px; }
-        .header h2 { font-size: 18px; letter-spacing: 2px; margin: 0; font-weight: 300; }
-        .status-tag { font-size: 10px; color: #00ff00; border: 1px solid #00ff00; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+        .app-shell {
+            width: 100%; max-width: 400px; min-height: 100vh;
+            background: #080808; border-right: 1px solid #1a1a1a; border-left: 1px solid #1a1a1a;
+        }
+        .panel-image {
+            width: 100%; height: 150px;
+            background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            position: relative; border-bottom: 1px solid #1a1a1a;
+        }
+        .panel-overlay {
+            position: absolute; bottom: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, #080808, transparent);
+        }
+        .content { padding: 20px; }
+        .header-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .header-info h2 { font-size: 14px; letter-spacing: 3px; font-weight: 300; color: #fff; margin: 0; text-transform: uppercase; }
+        .status { font-size: 9px; color: #00ff00; border: 1px solid rgba(0,255,0,0.3); padding: 4px 10px; border-radius: 4px; letter-spacing: 1px; }
 
-        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .main-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .card { 
+            background: #0d0d0d; border: 1px solid #1a1a1a; padding: 20px; border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .full-card { grid-column: span 2; text-align: center; padding: 30px 20px; }
         
-        .main-card { 
-            grid-column: span 2; background: #0d0d0d; border: 1px solid #1a1a1a; 
-            border-radius: 20px; padding: 30px; text-align: center;
-        }
-        .speed-val { font-size: 64px; font-weight: 800; margin: 0; }
-        .speed-unit { color: #444; font-size: 14px; letter-spacing: 2px; }
+        .label { display: block; font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; font-weight: 700; }
+        .value { font-size: 28px; font-weight: 800; color: #fff; }
+        .value span { font-size: 12px; color: #333; margin-left: 5px; }
+        .speed-large { font-size: 60px; color: #fff; line-height: 1; }
 
-        .stat-card { 
-            background: #0d0d0d; border: 1px solid #1a1a1a; 
-            border-radius: 15px; padding: 20px; 
+        .action-menu { margin-top: 20px; }
+        .menu-item { 
+            background: #0d0d0d; border: 1px solid #1a1a1a; padding: 18px; border-radius: 12px; 
+            margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;
+            font-size: 13px; letter-spacing: 1px; transition: 0.3s;
         }
-        .stat-label { font-size: 10px; color: #444; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .stat-value { font-size: 20px; font-weight: 600; }
-
-        .action-list { margin-top: 30px; }
-        .action-item { 
-            background: #111; border: 1px solid #1a1a1a; padding: 18px; 
-            border-radius: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;
-            font-size: 14px; font-weight: 500;
-        }
-        .action-item span { color: #666; }
+        .menu-item:active { background: #fff; color: #000; }
+        .arrow { color: #333; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h2>CEDRIC AUTO</h2>
-    <div class="status-tag">OBD-II AKTİF</div>
-</div>
-
-<div class="grid-container">
-    <div class="main-card">
-        <div class="speed-val">0</div>
-        <div class="speed-unit">KM/H</div>
+<div class="app-shell">
+    <div class="panel-image">
+        <div class="panel-overlay"></div>
     </div>
 
-    <div class="stat-card">
-        <span class="stat-label">Motor Devri</span>
-        <div class="stat-value">850 <small style="color:#444">RPM</small></div>
-    </div>
+    <div class="content">
+        <div class="header-info">
+            <h2>System Active</h2>
+            <div class="status">● CONNECTED</div>
+        </div>
 
-    <div class="stat-card">
-        <span class="stat-label">Sıcaklık</span>
-        <div class="stat-value">92 <small style="color:#444">°C</small></div>
-    </div>
-</div>
+        <div class="main-stats">
+            <div class="card full-card">
+                <span class="label">Anlık Hız</span>
+                <div class="speed-large">0<span style="font-size:16px; color:#333;"> KM/H</span></div>
+            </div>
 
-<div class="action-list">
-    <div class="action-item">Arıza Kodu Tarama <span>›</span></div>
-    <div class="action-item">Performans Testi <span>›</span></div>
-    <div class="action-item">Sistem Ayarları <span>›</span></div>
+            <div class="card">
+                <span class="label">Motor Devri</span>
+                <div class="value">850<span>RPM</span></div>
+            </div>
+
+            <div class="card">
+                <span class="label">Yağ Sıcaklığı</span>
+                <div class="value">92<span>°C</span></div>
+            </div>
+        </div>
+
+        <div class="action-menu">
+            <div class="menu-item">DTC HATA TARAMA <span class="arrow">→</span></div>
+            <div class="menu-item">CAN-BUS ANALİZ <span class="arrow">→</span></div>
+            <div class="menu-item">LOG KAYITLARI <span class="arrow">→</span></div>
+        </div>
+    </div>
 </div>
 
 </body>
