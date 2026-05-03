@@ -2,54 +2,83 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cedric Auto | Giriş</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Cedric Auto App</title>
     <style>
-        :root { --main-blue: #00d4ff; --bg-black: #0d1117; --input-bg: #161b22; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-black); color: white; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .login-container { background: var(--input-bg); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 100%; max-width: 350px; text-align: center; border: 1px solid #30363d; }
-        h1 { color: var(--main-blue); margin-bottom: 30px; letter-spacing: 2px; }
-        .input-group { margin-bottom: 20px; text-align: left; }
-        label { display: block; margin-bottom: 8px; color: #8b949e; font-size: 0.9em; }
-        input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #30363d; background: var(--bg-black); color: white; box-sizing: border-box; }
-        input:focus { outline: none; border-color: var(--main-blue); box-shadow: 0 0 5px var(--main-blue); }
-        .btn-primary { width: 100%; padding: 12px; border-radius: 8px; border: none; background: var(--main-blue); color: black; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
-        .links { margin-top: 25px; font-size: 0.85em; }
-        .links a { color: var(--main-blue); text-decoration: none; margin: 0 10px; }
-        .logo-icon { font-size: 3em; margin-bottom: 10px; }
+        :root { --accent: #00e5ff; --bg: #05070a; --field: #1c1f26; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg); color: white; margin: 0; padding: 0;
+            display: flex; flex-direction: column; height: 100vh; justify-content: center;
+            overflow: hidden; /* Mobil uygulama hissi için kaydırmayı kapatıyoruz */
+        }
+        .app-container { padding: 30px; }
+        .logo-area { text-align: center; margin-bottom: 40px; }
+        .logo-area div { font-size: 60px; filter: drop-shadow(0 0 10px var(--accent)); }
+        
+        h2 { font-weight: 800; letter-spacing: 1px; margin-bottom: 5px; text-align: center; }
+        p.subtitle { color: #5c6370; text-align: center; margin-bottom: 30px; font-size: 14px; }
+
+        .input-box {
+            background: var(--field); border-radius: 12px; margin-bottom: 15px;
+            padding: 12px 15px; border: 1px solid #2d333b;
+        }
+        .input-box label { display: block; font-size: 11px; color: var(--accent); text-transform: uppercase; margin-bottom: 5px; }
+        .input-box input {
+            background: transparent; border: none; color: white; width: 100%;
+            font-size: 16px; outline: none;
+        }
+
+        .login-btn {
+            background: var(--accent); color: #000; border: none; width: 100%;
+            padding: 16px; border-radius: 12px; font-weight: bold; font-size: 16px;
+            margin-top: 20px; box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+            active: transform: scale(0.98); /* Dokunma hissi */
+        }
+
+        .footer-links { text-align: center; margin-top: 30px; font-size: 14px; color: #8b949e; }
+        .footer-links a { color: var(--accent); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
-<div class="login-container">
-    <div class="logo-icon">🚗</div>
-    <h1>CEDRIC AUTO</h1>
-    <div class="input-group">
+
+<div class="app-container">
+    <div class="logo-area">
+        <div>🚗</div>
+        <h2>CEDRIC AUTO</h2>
+        <p class="subtitle">Araç Diagnostik Çözümleri</p>
+    </div>
+
+    <div class="input-box">
         <label>Kullanıcı Adı</label>
-        <input type="text" id="user" placeholder="Kullanıcı adınızı girin">
+        <input type="text" id="user" placeholder="Samimi bir kullanıcı adı...">
     </div>
-    <div class="input-group">
+
+    <div class="input-box">
         <label>Şifre</label>
-        <input type="password" id="pass" placeholder="Şifrenizi girin">
+        <input type="password" id="pass" placeholder="••••••••">
     </div>
-    <button class="btn-primary" onclick="checkLogin()">GİRİŞ YAP</button>
-    <div class="links">
-        <a href="#">Şifremi Unuttum</a>
-        <span>|</span>
-        <a href="uye-ol.html">Üye Ol</a>
+
+    <button class="login-btn" onclick="appLogin()">SİSTEME BAĞLAN</button>
+
+    <div class="footer-links">
+        Hesabın yok mu? <a href="uye-ol.html">Kayıt Ol</a>
     </div>
 </div>
 
 <script>
-function checkLogin() {
-    var user = document.getElementById('user').value;
-    var pass = document.getElementById('pass').value;
-    if(user !== "" && pass !== "") {
-        alert("Giriş Başarılı! Hoş geldin " + user);
-        // Buraya ileride dashboard sayfasını ekleyeceğiz
+function appLogin() {
+    // Mobil uygulama tarzı bir kontrol
+    const u = document.getElementById('user').value;
+    const p = document.getElementById('pass').value;
+    if(u && p) {
+        alert("Bağlantı kuruluyor...");
+        // Buraya ana ekran gelecek
     } else {
-        alert("Lütfen tüm alanları doldurun!");
+        alert("Giriş bilgileri eksik!");
     }
 }
 </script>
+
 </body>
 </html>
