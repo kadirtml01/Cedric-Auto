@@ -7,51 +7,49 @@
     <style>
         :root { --main-blue: #00d4ff; --bg-black: #0d1117; --input-bg: #161b22; }
         body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-black); color: white; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        
         .login-container { background: var(--input-bg); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 100%; max-width: 350px; text-align: center; border: 1px solid #30363d; }
-        
         h1 { color: var(--main-blue); margin-bottom: 30px; letter-spacing: 2px; }
-        
         .input-group { margin-bottom: 20px; text-align: left; }
         label { display: block; margin-bottom: 8px; color: #8b949e; font-size: 0.9em; }
-        
         input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #30363d; background: var(--bg-black); color: white; box-sizing: border-box; }
         input:focus { outline: none; border-color: var(--main-blue); box-shadow: 0 0 5px var(--main-blue); }
-
         .btn-primary { width: 100%; padding: 12px; border-radius: 8px; border: none; background: var(--main-blue); color: black; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
-        .btn-primary:hover { background: white; transform: scale(1.02); }
-
         .links { margin-top: 25px; font-size: 0.85em; }
         .links a { color: var(--main-blue); text-decoration: none; margin: 0 10px; }
-        .links a:hover { text-decoration: underline; }
-        
         .logo-icon { font-size: 3em; margin-bottom: 10px; }
     </style>
 </head>
 <body>
-
 <div class="login-container">
     <div class="logo-icon">🚗</div>
     <h1>CEDRIC AUTO</h1>
-    
     <div class="input-group">
         <label>Kullanıcı Adı</label>
-        <input type="text" placeholder="Kullanıcı adınızı girin">
+        <input type="text" id="user" placeholder="Kullanıcı adınızı girin">
     </div>
-    
     <div class="input-group">
         <label>Şifre</label>
-        <input type="password" placeholder="Şifrenizi girin">
+        <input type="password" id="pass" placeholder="Şifrenizi girin">
     </div>
-
-    <button class="btn-primary">GİRİŞ YAP</button>
-
+    <button class="btn-primary" onclick="checkLogin()">GİRİŞ YAP</button>
     <div class="links">
         <a href="#">Şifremi Unuttum</a>
         <span>|</span>
-        <a href="#">Üye Ol</a>
+        <a href="uye-ol.html">Üye Ol</a>
     </div>
 </div>
 
+<script>
+function checkLogin() {
+    var user = document.getElementById('user').value;
+    var pass = document.getElementById('pass').value;
+    if(user !== "" && pass !== "") {
+        alert("Giriş Başarılı! Hoş geldin " + user);
+        // Buraya ileride dashboard sayfasını ekleyeceğiz
+    } else {
+        alert("Lütfen tüm alanları doldurun!");
+    }
+}
+</script>
 </body>
 </html>
