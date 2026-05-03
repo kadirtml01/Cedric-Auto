@@ -3,78 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>CEDRIC AUTO | PRO</title>
+    <title>CEDRIC AUTO | VOLVO EDITION</title>
     <style>
         body { 
             background-color: #050505; color: #fff; 
-            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh;
         }
         .app-shell {
             width: 85%; max-width: 380px; background: #0d0d0d;
-            padding: 40px 30px; border-radius: 30px;
+            padding: 0 0 40px 0; border-radius: 30px;
             border: 1px solid #1a1a1a;
             box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            overflow: hidden; /* Resmin köşelerinin taşmaması için */
         }
-        .brand-box { text-align: center; margin-bottom: 45px; }
-        .brand-box h1 { 
-            font-size: 26px; font-weight: 800; margin: 0; letter-spacing: 2px;
-            background: linear-gradient(180deg, #fff 0%, #444 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        
+        .car-image {
+            width: 100%;
+            height: 180px;
+            background-image: url('https://images.unsplash.com/photo-1621932953986-15fcf084da0f?q=80&w=1000&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid #1a1a1a;
+            position: relative;
         }
-        .brand-box span { font-size: 9px; color: #444; text-transform: uppercase; letter-spacing: 4px; }
+        
+        /* Resmin üzerine siyah geçiş (Asalet katması için) */
+        .car-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 60%;
+            background: linear-gradient(to top, #0d0d0d, transparent);
+        }
 
-        .input-field { margin-bottom: 20px; }
+        .content-area { padding: 0 30px; }
+
+        .brand-box { text-align: center; margin: 20px 0 35px 0; }
+        .brand-box h1 { 
+            font-size: 24px; font-weight: 800; margin: 0; letter-spacing: 3px;
+            color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.2);
+        }
+        .brand-box span { font-size: 8px; color: #444; text-transform: uppercase; letter-spacing: 5px; }
+
+        .input-field { margin-bottom: 18px; }
         .input-field label { 
-            display: block; font-size: 11px; color: #666; margin-bottom: 10px;
-            text-transform: uppercase; font-weight: 700;
+            display: block; font-size: 10px; color: #555; margin-bottom: 8px;
+            text-transform: uppercase; font-weight: 700; letter-spacing: 1px;
         }
         .input-field input {
             width: 100%; background: #151515; border: 1px solid #222;
-            padding: 15px; border-radius: 12px; color: #fff; font-size: 16px;
-            box-sizing: border-box; transition: 0.3s;
+            padding: 14px; border-radius: 10px; color: #fff; font-size: 15px;
+            box-sizing: border-box; outline: none; transition: 0.3s;
         }
-        .input-field input:focus { border-color: #444; background: #1a1a1a; outline: none; }
+        .input-field input:focus { border-color: #555; background: #1a1a1a; }
 
         .btn-connect {
-            width: 100%; padding: 18px; border-radius: 12px; border: none;
-            background: #fff; color: #000; font-weight: 800; font-size: 14px;
-            text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;
+            width: 100%; padding: 16px; border-radius: 10px; border: none;
+            background: #fff; color: #000; font-weight: 800; font-size: 13px;
+            text-transform: uppercase; letter-spacing: 2px; margin-top: 10px;
             cursor: pointer; transition: 0.3s;
         }
-        .btn-connect:active { transform: scale(0.97); background: #ccc; }
+        .btn-connect:active { transform: scale(0.97); }
 
-        .bottom-nav { margin-top: 30px; text-align: center; }
+        .bottom-nav { margin-top: 25px; text-align: center; }
         .bottom-nav a { 
-            color: #444; text-decoration: none; font-size: 12px; font-weight: 600;
+            color: #333; text-decoration: none; font-size: 11px; font-weight: 600;
+            transition: 0.3s;
         }
-        .divider { color: #222; margin: 0 10px; }
+        .bottom-nav a:hover { color: #888; }
     </style>
 </head>
 <body>
 
 <div class="app-shell">
-    <div class="brand-box">
-        <h1>CEDRIC AUTO</h1>
-        <span>Sytem Interface v1.0</span>
+    <div class="car-image">
+        <div class="car-overlay"></div>
     </div>
 
-    <div class="input-field">
-        <label>Kullanıcı Tanımı</label>
-        <input type="text" placeholder="ID Giriniz" spellcheck="false">
-    </div>
+    <div class="content-area">
+        <div class="brand-box">
+            <h1>CEDRIC AUTO</h1>
+            <span>Legacy Control Interface</span>
+        </div>
 
-    <div class="input-field">
-        <label>Erişim Şifresi</label>
-        <input type="password" placeholder="••••••••">
-    </div>
+        <div class="input-field">
+            <label>Erişim Kimliği</label>
+            <input type="text" placeholder="ID" spellcheck="false">
+        </div>
 
-    <button class="btn-connect">Sistemi Başlat</button>
+        <div class="input-field">
+            <label>Güvenlik Anahtarı</label>
+            <input type="password" placeholder="••••••••">
+        </div>
 
-    <div class="bottom-nav">
-        <a href="uye-ol.html">Hesap Oluştur</a>
-        <span class="divider">/</span>
-        <a href="#">Yardım</a>
+        <button class="btn-connect">Bağlantıyı Kur</button>
+
+        <div class="bottom-nav">
+            <a href="uye-ol.html">Yeni Hesap</a>
+            <span style="color:#222; margin:0 10px;">/</span>
+            <a href="#">Yardım</a>
+        </div>
     </div>
 </div>
 
