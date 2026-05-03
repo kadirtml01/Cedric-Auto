@@ -84,7 +84,7 @@
     <p class="subtitle">SİSTEME BAĞLANIN</p>
 
     <div class="input-box">
-        <label>GÜVENLİK ANAHTARI</label>
+        <label>Giriş Şifresi</label>
         <input type="password" id="passInput" placeholder="••••••••">
     </div>
 
@@ -104,8 +104,8 @@
     function handleLogin() {
         const val = document.getElementById('passInput').value;
         
-        // Şifreyi buraya yaz (örneğin: kadir2026)
-        if(val === "1234") { 
+        // Şifreyi buraya yaz 
+        if(val === "a") { 
             window.location.href = "panel.html"; 
         } else {
             showModernAlert("Kimlik doğrulanamadı. Lütfen güvenlik anahtarını kontrol edin.");
