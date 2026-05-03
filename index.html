@@ -5,105 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>CEDRIC AUTO | LOGIN</title>
     <style>
-        body { 
-            background-color: #050505; color: #fff; 
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh;
-        }
-        .app-shell {
-            width: 85%; max-width: 380px; background: #0d0d0d;
-            padding: 0 0 40px 0; border-radius: 30px;
-            border: 1px solid #1a1a1a;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            overflow: hidden;
-        }
-        
-        .car-image {
-            width: 100%;
-            height: 220px;
-            /* Sinematik, asil araç görseli */
-            background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop'); 
-            background-size: cover;
-            background-position: center;
-            border-bottom: 1px solid #1a1a1a;
-            position: relative;
-        }
-        
-        .car-overlay {
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 80%;
-            background: linear-gradient(to top, #0d0d0d, transparent);
-        }
-
+        body { background-color: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .app-shell { width: 85%; max-width: 380px; background: #0d0d0d; padding-bottom: 40px; border-radius: 30px; border: 1px solid #1a1a1a; overflow: hidden; }
+        .car-image { width: 100%; height: 220px; background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center; position: relative; }
+        .car-overlay { position: absolute; bottom: 0; width: 100%; height: 80%; background: linear-gradient(to top, #0d0d0d, transparent); }
         .content-area { padding: 0 30px; }
-
-        .brand-box { text-align: center; margin: 20px 0 30px 0; }
-        .brand-box h1 { 
-            font-size: 24px; font-weight: 800; margin: 0; letter-spacing: 3px;
-            color: #fff; text-transform: uppercase;
-        }
-        .brand-box span { font-size: 8px; color: #444; text-transform: uppercase; letter-spacing: 5px; }
-
+        .brand-box { text-align: center; margin: 20px 0; }
+        .brand-box h1 { font-size: 24px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin:0; }
         .input-field { margin-bottom: 18px; }
-        .input-field label { 
-            display: block; font-size: 10px; color: #666; margin-bottom: 8px;
-            text-transform: uppercase; font-weight: 700; letter-spacing: 1px;
-        }
-        .input-field input {
-            width: 100%; background: #151515; border: 1px solid #222;
-            padding: 14px; border-radius: 12px; color: #fff; font-size: 15px;
-            box-sizing: border-box; outline: none; transition: 0.3s;
-        }
-        .input-field input:focus { border-color: #555; background: #1a1a1a; }
-
-        .btn-connect {
-            width: 100%; padding: 18px; border-radius: 12px; border: none;
-            background: #fff; color: #000; font-weight: 800; font-size: 13px;
-            text-transform: uppercase; letter-spacing: 2px; margin-top: 10px;
-            cursor: pointer; transition: 0.3s;
-        }
-        .btn-connect:active { transform: scale(0.97); background: #eee; }
-
+        .input-field label { display: block; font-size: 10px; color: #666; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+        .input-field input { width: 100%; background: #151515; border: 1px solid #222; padding: 14px; border-radius: 12px; color: #fff; outline: none; box-sizing: border-box; }
+        .btn-connect { width: 100%; padding: 18px; border-radius: 12px; border: none; background: #fff; color: #000; font-weight: 800; text-transform: uppercase; cursor: pointer; }
         .bottom-nav { margin-top: 25px; text-align: center; }
-        .bottom-nav a { 
-            color: #333; text-decoration: none; font-size: 11px; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        .bottom-nav a:hover { color: #888; }
+        .bottom-nav a { color: #333; text-decoration: none; font-size: 11px; text-transform: uppercase; }
     </style>
 </head>
 <body>
-
 <div class="app-shell">
-    <div class="car-image">
-        <div class="car-overlay"></div>
-    </div>
-
+    <div class="car-image"><div class="car-overlay"></div></div>
     <div class="content-area">
-        <div class="brand-box">
-            <h1>CEDRIC AUTO</h1>
-            <span>Legacy Control Interface</span>
-        </div>
-
-        <div class="input-field">
-            <label>Erişim Kimliği</label>
-            <input type="text" placeholder="Kullanıcı Adı" spellcheck="false">
-        </div>
-
-        <div class="input-field">
-            <label>Güvenlik Anahtarı</label>
-            <input type="password" placeholder="••••••••">
-        </div>
-
-        <button class="btn-connect" onclick="window.location.href='panel.html'">Bağlantıyı Kur</button>
-
-        <div class="bottom-nav">
-            <a href="uye-ol.html">Yeni Hesap</a>
-            <span style="color:#222; margin:0 10px;">/</span>
-            <a href="#">Yardım</a>
-        </div>
+        <div class="brand-box"><h1>CEDRIC AUTO</h1><span>Legacy Interface</span></div>
+        <div class="input-field"><label>Erişim Kimliği</label><input type="text" id="loginUser" placeholder="ID"></div>
+        <div class="input-field"><label>Güvenlik Anahtarı</label><input type="password" id="loginPass" placeholder="••••••••"></div>
+        <button class="btn-connect" onclick="girisKontrol()">Bağlantıyı Kur</button>
+        <div class="bottom-nav"><a href="uye-ol.html">Yeni Hesap Oluştur</a></div>
     </div>
 </div>
+<script>
+function girisKontrol() {
+    const user = document.getElementById('loginUser').value;
+    const pass = document.getElementById('loginPass').value;
+    const storedUser = localStorage.getItem('db_user');
+    const storedPass = localStorage.getItem('db_pass');
 
+    if (user === storedUser && pass === storedPass && user !== null) {
+        window.location.href = 'panel.html';
+    } else {
+        alert("Hatalı kimlik bilgileri veya üyelik bulunamadı!");
+    }
+}
+</script>
 </body>
 </html>
