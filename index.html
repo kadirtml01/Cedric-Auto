@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>CEDRIC AUTO | VOLVO EDITION</title>
+    <title>CEDRIC AUTO | LOGIN</title>
     <style>
         body { 
             background-color: #050505; color: #fff; 
@@ -20,8 +20,8 @@
         
         .car-image {
             width: 100%;
-            height: 200px;
-            /* Yeni ve asil bir klasik araç görseli */
+            height: 220px;
+            /* Sinematik, asil araç görseli */
             background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop'); 
             background-size: cover;
             background-position: center;
@@ -31,7 +31,7 @@
         
         .car-overlay {
             position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 70%;
+            bottom: 0; left: 0; width: 100%; height: 80%;
             background: linear-gradient(to top, #0d0d0d, transparent);
         }
 
@@ -40,9 +40,9 @@
         .brand-box { text-align: center; margin: 20px 0 30px 0; }
         .brand-box h1 { 
             font-size: 24px; font-weight: 800; margin: 0; letter-spacing: 3px;
-            color: #fff;
+            color: #fff; text-transform: uppercase;
         }
-        .brand-box span { font-size: 8px; color: #555; text-transform: uppercase; letter-spacing: 5px; }
+        .brand-box span { font-size: 8px; color: #444; text-transform: uppercase; letter-spacing: 5px; }
 
         .input-field { margin-bottom: 18px; }
         .input-field label { 
@@ -54,14 +54,22 @@
             padding: 14px; border-radius: 12px; color: #fff; font-size: 15px;
             box-sizing: border-box; outline: none; transition: 0.3s;
         }
-        .input-field input:focus { border-color: #444; }
+        .input-field input:focus { border-color: #555; background: #1a1a1a; }
 
         .btn-connect {
             width: 100%; padding: 18px; border-radius: 12px; border: none;
             background: #fff; color: #000; font-weight: 800; font-size: 13px;
             text-transform: uppercase; letter-spacing: 2px; margin-top: 10px;
-            cursor: pointer;
+            cursor: pointer; transition: 0.3s;
         }
+        .btn-connect:active { transform: scale(0.97); background: #eee; }
+
+        .bottom-nav { margin-top: 25px; text-align: center; }
+        .bottom-nav a { 
+            color: #333; text-decoration: none; font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .bottom-nav a:hover { color: #888; }
     </style>
 </head>
 <body>
@@ -79,7 +87,7 @@
 
         <div class="input-field">
             <label>Erişim Kimliği</label>
-            <input type="text" placeholder="ID" spellcheck="false">
+            <input type="text" placeholder="Kullanıcı Adı" spellcheck="false">
         </div>
 
         <div class="input-field">
@@ -87,7 +95,13 @@
             <input type="password" placeholder="••••••••">
         </div>
 
-        <button class="btn-connect">Bağlantıyı Kur</button>
+        <button class="btn-connect" onclick="window.location.href='panel.html'">Bağlantıyı Kur</button>
+
+        <div class="bottom-nav">
+            <a href="uye-ol.html">Yeni Hesap</a>
+            <span style="color:#222; margin:0 10px;">/</span>
+            <a href="#">Yardım</a>
+        </div>
     </div>
 </div>
 
