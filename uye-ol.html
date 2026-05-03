@@ -2,64 +2,109 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cedric Auto | Kayıt Ol</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>CEDRIC AUTO | REGISTER</title>
     <style>
-        :root { --main-blue: #00d4ff; --bg-black: #0d1117; --input-bg: #161b22; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-black); color: white; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .login-container { background: var(--input-bg); padding: 40px; border-radius: 20px; width: 100%; max-width: 350px; text-align: center; border: 1px solid #30363d; }
-        h1 { color: var(--main-blue); margin-bottom: 20px; letter-spacing: 2px; }
-        .input-group { margin-bottom: 15px; text-align: left; }
-        label { display: block; margin-bottom: 5px; color: #8b949e; font-size: 0.9em; }
-        input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #30363d; background: var(--bg-black); color: white; box-sizing: border-box; }
-        input:focus { outline: none; border-color: var(--main-blue); box-shadow: 0 0 5px var(--main-blue); }
-        .btn-primary { width: 100%; padding: 12px; border-radius: 8px; border: none; background: var(--main-blue); color: black; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
-        .btn-primary:hover { background: white; }
-        .links { margin-top: 20px; font-size: 0.85em; }
-        .links a { color: var(--main-blue); text-decoration: none; }
+        body { 
+            background-color: #050505; color: #fff; 
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh;
+        }
+        .app-shell {
+            width: 85%; max-width: 380px; background: #0d0d0d;
+            padding: 0 0 40px 0; border-radius: 30px;
+            border: 1px solid #1a1a1a;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            overflow: hidden;
+        }
+        
+        .header-banner {
+            width: 100%;
+            height: 120px;
+            background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid #1a1a1a;
+            position: relative;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, #0d0d0d, rgba(0,0,0,0.4));
+        }
+
+        .content-area { padding: 0 30px; }
+
+        .brand-box { text-align: left; margin: 25px 0 30px 0; border-left: 3px solid #fff; padding-left: 15px; }
+        .brand-box h1 { 
+            font-size: 20px; font-weight: 800; margin: 0; letter-spacing: 2px;
+            color: #fff; text-transform: uppercase;
+        }
+        .brand-box span { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 3px; }
+
+        .input-field { margin-bottom: 15px; }
+        .input-field label { 
+            display: block; font-size: 9px; color: #666; margin-bottom: 6px;
+            text-transform: uppercase; font-weight: 700; letter-spacing: 1px;
+        }
+        .input-field input {
+            width: 100%; background: #151515; border: 1px solid #222;
+            padding: 12px; border-radius: 10px; color: #fff; font-size: 14px;
+            box-sizing: border-box; outline: none; transition: 0.3s;
+        }
+        .input-field input:focus { border-color: #444; background: #1a1a1a; }
+
+        .btn-register {
+            width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #fff;
+            background: transparent; color: #fff; font-weight: 800; font-size: 12px;
+            text-transform: uppercase; letter-spacing: 2px; margin-top: 20px;
+            cursor: pointer; transition: 0.3s;
+        }
+        .btn-register:active { transform: scale(0.97); background: #fff; color: #000; }
+
+        .bottom-nav { margin-top: 25px; text-align: center; }
+        .bottom-nav a { 
+            color: #444; text-decoration: none; font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
-<div class="login-container">
-    <h1>KAYIT OL</h1>
-    
-    <div class="input-group">
-        <label>Ad Soyad</label>
-        <input type="text" placeholder="Adınızı girin">
+
+<div class="app-shell">
+    <div class="header-banner">
+        <div class="header-overlay"></div>
     </div>
 
-    <div class="input-group">
-        <label>Kullanıcı Adı</label>
-        <input type="text" id="reg-user" placeholder="Bir kullanıcı adı belirleyin">
-    </div>
+    <div class="content-area">
+        <div class="brand-box">
+            <h1>Sistem Kaydı</h1>
+            <span>New Operator Authorization</span>
+        </div>
 
-    <div class="input-group">
-        <label>E-posta</label>
-        <input type="email" placeholder="E-posta adresiniz">
-    </div>
+        <div class="input-field">
+            <label>Ad Soyad</label>
+            <input type="text" placeholder="İsim Giriniz" spellcheck="false">
+        </div>
 
-    <div class="input-group">
-        <label>Şifre</label>
-        <input type="password" placeholder="Şifre oluşturun">
-    </div>
+        <div class="input-field">
+            <label>Kullanıcı Tanımı (ID)</label>
+            <input type="text" placeholder="Kullanıcı Adı" spellcheck="false">
+        </div>
 
-    <button class="btn-primary" onclick="completeRegistration()">HESAP OLUŞTUR</button>
-    
-    <div class="links">
-        <a href="index.html">Zaten üye misiniz? Giriş yapın</a>
+        <div class="input-field">
+            <label>Erişim Anahtarı</label>
+            <input type="password" placeholder="••••••••">
+        </div>
+
+        <button class="btn-register" onclick="window.location.href='index.html'">Kaydı Tamamla</button>
+
+        <div class="bottom-nav">
+            <a href="index.html">Giriş Ekranına Dön</a>
+        </div>
     </div>
 </div>
 
-<script>
-function completeRegistration() {
-    var user = document.getElementById('reg-user').value;
-    if(user !== "") {
-        alert("Kayıt başarılı! Hoş geldin " + user + ". Şimdi giriş yapabilirsin.");
-        window.location.href='index.html';
-    } else {
-        alert("Lütfen bir kullanıcı adı belirleyin!");
-    }
-}
-</script>
 </body>
 </html>
