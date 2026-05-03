@@ -1,122 +1,124 @@
-<style>
-    /* --- MODERN UYARI PENCERESİ (MODAL) --- */
-    #customAlert {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(15px); /* Arkayı asil bir şekilde bulandırır */
-        display: none; /* Başlangıçta gizli */
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-    }
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>CEDRIC AUTO | LOGIN</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #050505; color: #fff; 
+            font-family: 'Segoe UI', sans-serif; margin: 0;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; overflow: hidden;
+        }
 
-    .alert-card {
-        background: #111;
-        border: 1px solid #222;
-        width: 85%;
-        max-width: 320px;
-        border-radius: 28px;
-        padding: 35px 25px;
-        text-align: center;
-        box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        transform: translateY(20px);
-        transition: 0.3s ease-out;
-    }
+        .login-card {
+            width: 100%; max-width: 350px; padding: 30px;
+            text-align: center;
+        }
 
-    .alert-card.show {
-        transform: translateY(0);
-    }
+        .logo-img {
+            width: 100%; height: 200px;
+            background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            border-radius: 20px; margin-bottom: 30px;
+            border: 1px solid #1a1a1a;
+        }
 
-    .alert-icon {
-        width: 50px;
-        height: 50px;
-        background: #1a1a1a;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        color: #ff3b30; /* Hata kırmızısı */
-        font-size: 24px;
-        font-weight: bold;
-        border: 1px solid #333;
-    }
+        h1 { font-size: 24px; letter-spacing: 5px; margin-bottom: 5px; font-weight: 900; }
+        p.subtitle { font-size: 10px; color: #444; letter-spacing: 3px; margin-bottom: 40px; }
 
-    .alert-title {
-        font-size: 18px;
-        font-weight: 800;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-        color: #fff;
-    }
+        .input-group { margin-bottom: 20px; text-align: left; }
+        label { font-size: 10px; color: #333; letter-spacing: 1px; text-transform: uppercase; margin-left: 5px; }
+        
+        input {
+            width: 100%; background: #0d0d0d; border: 1px solid #1a1a1a;
+            padding: 15px; border-radius: 12px; color: #fff;
+            margin-top: 5px; outline: none; transition: 0.3s;
+        }
+        input:focus { border-color: #333; }
 
-    .alert-text {
-        font-size: 14px;
-        color: #888;
-        line-height: 1.6;
-        margin-bottom: 30px;
-    }
+        .login-btn {
+            width: 100%; background: #fff; color: #000; border: none;
+            padding: 15px; border-radius: 12px; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+            margin-top: 10px; transition: 0.3s;
+        }
+        .login-btn:active { transform: scale(0.95); }
 
-    .alert-btn {
-        background: #fff;
-        color: #000;
-        border: none;
-        width: 100%;
-        padding: 15px;
-        border-radius: 15px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        cursor: pointer;
-        transition: 0.2s;
-    }
+        /* --- MODERN UYARI PENCERESİ (MODAL) --- */
+        #customAlert {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px);
+            display: none; align-items: center; justify-content: center; z-index: 999;
+        }
+        .alert-card {
+            background: #111; border: 1px solid #222; width: 80%;
+            max-width: 300px; border-radius: 25px; padding: 30px; text-align: center;
+            transform: scale(0.8); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .alert-card.show { transform: scale(1); }
+        .alert-icon { font-size: 30px; color: #500; margin-bottom: 15px; }
+        .alert-title { font-size: 16px; font-weight: 800; margin-bottom: 10px; }
+        .alert-text { font-size: 13px; color: #666; margin-bottom: 25px; line-height: 1.5; }
+        .alert-btn {
+            background: #fff; color: #000; border: none; width: 100%;
+            padding: 12px; border-radius: 12px; font-weight: 800; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
 
-    .alert-btn:active {
-        transform: scale(0.95);
-        background: #ccc;
-    }
-</style>
+<div class="login-card">
+    <div class="logo-img"></div>
+    <h1>CEDRIC AUTO</h1>
+    <p class="subtitle">SİSTEME BAĞLANIN</p>
+
+    <div class="input-group">
+        <label>GÜVENLİK ANAHTARI</label>
+        <input type="password" id="passKey" placeholder="••••••••">
+    </div>
+
+    <button class="login-btn" onclick="checkLogin()">BAĞLANTIYI KUR</button>
+</div>
 
 <div id="customAlert">
     <div class="alert-card" id="alertCard">
         <div class="alert-icon">!</div>
-        <div class="alert-title">ERİŞİM REDDİ</div>
-        <div id="alertMessage" class="alert-text">Kimlik doğrulanamadı. Lütfen bilgilerinizi kontrol edin.</div>
-        <button class="alert-btn" onclick="closeMyAlert()">TAMAM</button>
+        <div class="alert-title">KİMLİK HATASI</div>
+        <div id="alertMessage" class="alert-text">Bilgiler doğrulanamadı.</div>
+        <button class="alert-btn" onclick="closeAlert()">TEKRAR DENE</button>
     </div>
 </div>
 
 <script>
-    // Eski alert('') yerine bu fonksiyonu çağıracaksın
-    function showModernAlert(message) {
-        const overlay = document.getElementById('customAlert');
-        const card = document.getElementById('alertCard');
-        const msgElement = document.getElementById('alertMessage');
-
-        msgElement.innerText = message;
-        overlay.style.display = 'flex';
+    function checkLogin() {
+        const key = document.getElementById('passKey').value;
         
-        // Küçük bir gecikmeyle animasyonu başlat
+        // Burayı kendi şifrene göre ayarla
+        if(key === "1234") { 
+            window.location.href = "panel.html"; 
+        } else {
+            showModernAlert("Kimlik doğrulanamadı. Lütfen güvenlik anahtarını kontrol edin.");
+        }
+    }
+
+    function showModernAlert(msg) {
+        document.getElementById('alertMessage').innerText = msg;
+        document.getElementById('customAlert').style.display = 'flex';
         setTimeout(() => {
-            card.classList.add('show');
+            document.getElementById('alertCard').classList.add('show');
         }, 10);
     }
 
-    function closeMyAlert() {
-        const card = document.getElementById('alertCard');
-        const overlay = document.getElementById('customAlert');
-        
-        card.classList.remove('show');
+    function closeAlert() {
+        document.getElementById('alertCard').classList.remove('show');
         setTimeout(() => {
-            overlay.style.display = 'none';
+            document.getElementById('customAlert').style.display = 'none';
         }, 300);
     }
-
-    // ÖRNEK KULLANIM: 
-    // Senin giriş kontrol kodunda "alert('Hatalı giriş')" yazan yeri 
-    // "showModernAlert('Kimlik doğrulanamadı...')" olarak değiştir.
 </script>
+
+</body>
+</html>
